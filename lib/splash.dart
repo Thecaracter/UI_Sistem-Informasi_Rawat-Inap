@@ -95,6 +95,7 @@ class _SplashState extends State<Splash> {
                           decoration: TextDecoration.none,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
+                          fontFamily: "Poopins",
                           color: Colors.black.withOpacity(0.5),
                         ),
                       ),

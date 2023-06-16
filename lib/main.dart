@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui_sistem_rawat_inap/register.dart';
 import 'package:ui_sistem_rawat_inap/splash.dart';
-
-import 'onboarding.dart';
 
 void main() {
   runApp(const MyApp());

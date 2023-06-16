@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui_sistem_rawat_inap/login.dart';
+import 'package:ui_sistem_rawat_inap/register.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -75,7 +77,8 @@ class _OnBoardingState extends State<OnBoarding> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   decoration: TextDecoration.none,
-                  fontSize: 17,
+                  fontSize: 18,
+                  fontFamily: "Poopins",
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -83,17 +86,21 @@ class _OnBoardingState extends State<OnBoarding> {
             ),
           ),
           SizedBox(height: 20),
-          Align(
-            alignment: Alignment.center,
-            child: Center(
-              child: Text(
-                "informasi layanan ruangan rawat inap yang selalu paling baru lengkap dengan nomor telfon rumah sakit terdekat dari lokasi anda.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  decoration: TextDecoration.none,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black.withOpacity(0.7),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.center,
+              child: Center(
+                child: Text(
+                  "informasi layanan ruangan rawat inap yang selalu paling baru lengkap dengan nomor telfon rumah sakit terdekat dari lokasi anda.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    decoration: TextDecoration.none,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Poopins",
+                    color: Colors.black.withOpacity(0.7),
+                  ),
                 ),
               ),
             ),
@@ -119,7 +126,17 @@ class _OnBoardingState extends State<OnBoarding> {
                       ),
                       backgroundColor: Color(0xffDED93E),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WillPopScope(
+                            onWillPop: () async => false,
+                            child: Login(),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
                 SizedBox(
@@ -147,7 +164,17 @@ class _OnBoardingState extends State<OnBoarding> {
                           color: Colors.white), // Add a white outline
                       backgroundColor: Color(0xff45A28C),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WillPopScope(
+                            onWillPop: () async => false,
+                            child: Register(),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],

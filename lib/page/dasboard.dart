@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:ui_sistem_rawat_inap/login.dart';
+import 'package:ui_sistem_rawat_inap/service/service.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -11,6 +12,30 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   DateTime? selectedDay;
+  ApiService apiService = ApiService();
+  List<dynamic> data = [];
+  int dataLimit = 10;
+  int currentDataCount = 10;
+
+  @override
+  void initState() {
+    super.initState();
+    ambil_data();
+  }
+
+  Future<void> ambil_data() async {
+    try {
+      var ambil_data = await apiService.fetchHospitalData();
+      setState(() {
+        data = ambil_data;
+      });
+
+      print(data);
+    } catch (error) {
+      // Handle any errors that occurred during the API call
+      print('Error: $error');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +60,10 @@ class _DashboardState extends State<Dashboard> {
                   child: Row(
                     children: [
                       CircleAvatar(
-                        radius: 20,
+                        radius: 25,
                         backgroundImage: AssetImage('assets/Login.png'),
                       ),
-                      SizedBox(width: 16),
+                      SizedBox(width: 10),
                       Text(
                         'Hi, Rizqi Nur Andi Putra',
                         style: TextStyle(
@@ -229,7 +254,7 @@ class _DashboardState extends State<Dashboard> {
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
                             child: Text(
-                              "Riwayat Pemesanan",
+                              "Rumah Sakit Tersedia",
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -241,17 +266,17 @@ class _DashboardState extends State<Dashboard> {
                         Expanded(
                           child: ListView.builder(
                             shrinkWrap: true,
-                            itemCount:
-                                3, // Ganti dengan jumlah data yang sesuai
+                            itemCount: data.length,
                             itemBuilder: (BuildContext context, int index) {
+                              String hospitalName = data[index]?['name'] ?? '';
+
                               return Padding(
                                 padding: const EdgeInsets.all(10),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20),
+                                    color: Colors.green[50],
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(12.0),
                                     ),
                                     boxShadow: const [
                                       BoxShadow(
@@ -262,8 +287,63 @@ class _DashboardState extends State<Dashboard> {
                                     ],
                                   ),
                                   height:
-                                      MediaQuery.of(context).size.height / 10.5,
-                                  width: 10,
+                                      MediaQuery.of(context).size.height / 10,
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(15.0),
+                                                child: Text(
+                                                  hospitalName,
+                                                  style: TextStyle(
+                                                    fontSize: 13,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.green[400],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 15.0),
+                                                child: Text(
+                                                  "Berlaku Hingga 10 Maret 2021",
+                                                  style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.grey[600],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          // Tambahkan logika untuk tombol share di sini
+                                        },
+                                        icon: Transform(
+                                          alignment: Alignment.center,
+                                          transform: Matrix4.rotationY(
+                                              3.141592653589793),
+                                          child: Icon(
+                                            Icons.reply,
+                                            size: 24.0,
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               );
                             },

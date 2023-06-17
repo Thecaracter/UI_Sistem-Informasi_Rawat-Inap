@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_sistem_rawat_inap/onboarding.dart';
+import 'package:ui_sistem_rawat_inap/page/dasboard.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -12,6 +12,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SingleChildScrollView(
           child: Container(
@@ -148,7 +149,7 @@ class _LoginState extends State<Login> {
                               MaterialPageRoute(
                                 builder: (context) => WillPopScope(
                                   onWillPop: () async => false,
-                                  child: OnBoarding(),
+                                  child: Dashboard(),
                                 ),
                               ),
                             );

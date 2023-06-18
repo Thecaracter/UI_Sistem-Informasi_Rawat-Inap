@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:ui_sistem_rawat_inap/page/pesanKamar.dart';
 import 'package:ui_sistem_rawat_inap/service/service.dart';
 
 class Dashboard extends StatefulWidget {
@@ -47,13 +48,10 @@ class _DashboardState extends State<Dashboard> {
             color: Color(0xff49A18C),
             child: Column(
               children: [
-                SizedBox(
-                  height: 35,
-                ),
                 Container(
                   padding: EdgeInsets.only(
-                    top: 10,
-                    left: 33,
+                    top: 5,
+                    left: 10,
                   ),
                   color: Color(0xff49A18C),
                   child: Row(
@@ -71,7 +69,7 @@ class _DashboardState extends State<Dashboard> {
                         ),
                       ),
                       SizedBox(
-                        width: 110,
+                        width: 80,
                       ),
                       Icon(
                         Icons.notifications_active,
@@ -268,7 +266,7 @@ class _DashboardState extends State<Dashboard> {
                             itemCount: data.length,
                             itemBuilder: (BuildContext context, int index) {
                               String hospitalName = data[index]?['name'] ?? '';
-
+                              String Phone = data[index]?['phone'] ?? '';
                               return Padding(
                                 padding: const EdgeInsets.all(10),
                                 child: Container(
@@ -286,7 +284,7 @@ class _DashboardState extends State<Dashboard> {
                                     ],
                                   ),
                                   height:
-                                      MediaQuery.of(context).size.height / 10,
+                                      MediaQuery.of(context).size.height / 8,
                                   child: Row(
                                     children: [
                                       Expanded(
@@ -315,7 +313,7 @@ class _DashboardState extends State<Dashboard> {
                                                 padding: const EdgeInsets.only(
                                                     left: 15.0),
                                                 child: Text(
-                                                  "Berlaku Hingga 10 Maret 2021",
+                                                  Phone,
                                                   style: TextStyle(
                                                     fontSize: 14,
                                                     color: Colors.grey[600],
@@ -374,7 +372,17 @@ class _DashboardState extends State<Dashboard> {
             backgroundColor: Color(0xff60BA0F),
             minimumSize: Size(100, 40),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => WillPopScope(
+                  onWillPop: () async => false,
+                  child: PesanKamar(),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

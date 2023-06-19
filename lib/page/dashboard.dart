@@ -30,8 +30,6 @@ class _DashboardState extends State<Dashboard> {
       setState(() {
         data = ambil_data;
       });
-
-      print(data);
     } catch (error) {
       // Handle any errors that occurred during the API call
       print('Error: $error');

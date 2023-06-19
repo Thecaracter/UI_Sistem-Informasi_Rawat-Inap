@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_sistem_rawat_inap/page/dasboard.dart';
+import 'package:ui_sistem_rawat_inap/page/dashboard.dart';
 import 'package:ui_sistem_rawat_inap/service/service.dart';
 
 class PesanKamar extends StatefulWidget {

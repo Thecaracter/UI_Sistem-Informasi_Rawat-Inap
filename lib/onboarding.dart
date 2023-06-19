@@ -56,12 +56,12 @@ class _OnBoardingState extends State<OnBoarding> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 17,
                   ),
                   Image.asset(
                     "assets/bed_vektor.png",
                     width: MediaQuery.of(context).size.width / 1.2,
-                    height: MediaQuery.of(context).size.height / 3,
+                    height: MediaQuery.of(context).size.height / 3.2,
                     fit: BoxFit.contain,
                   ),
                 ],

@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="ui_sistem_rawat_inap"
-        android:name="${applicationName}"
+        android:name="UI Siranap App"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

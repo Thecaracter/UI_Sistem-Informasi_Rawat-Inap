@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:ui_sistem_rawat_inap/login.dart';
 import 'package:ui_sistem_rawat_inap/page/pesanKamar.dart';
 import 'package:ui_sistem_rawat_inap/service/service.dart';
 
@@ -61,29 +62,52 @@ class _DashboardState extends State<Dashboard> {
                         backgroundImage: AssetImage('assets/Login.png'),
                       ),
                       SizedBox(width: 10),
-                      Text(
-                        'Hi, Rizqi Nur Andi Putra',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
+                      Expanded(
+                        child: Text(
+                          'Hi, Rizqi Nur Andi Putra',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
+                          overflow: TextOverflow.clip,
                         ),
                       ),
-                      SizedBox(
-                        width: 80,
-                      ),
-                      Icon(
-                        Icons.notifications_active,
-                        size: 24.0,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Icon(
-                        Icons.logout,
-                        size: 24.0,
-                        color: Colors.white,
-                      ),
+                      Spacer(),
+                      Row(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              // Tindakan yang dijalankan saat ikon notifications_active diklik
+                            },
+                            child: Icon(
+                              Icons.notifications_active,
+                              size: 24.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => WillPopScope(
+                                    onWillPop: () async => false,
+                                    child: Login(),
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Icon(
+                              Icons.logout,
+                              size: 24.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),

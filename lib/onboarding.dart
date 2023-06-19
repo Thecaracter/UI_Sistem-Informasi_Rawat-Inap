@@ -91,15 +91,18 @@ class _OnBoardingState extends State<OnBoarding> {
             child: Align(
               alignment: Alignment.center,
               child: Center(
-                child: Text(
-                  "informasi layanan ruangan rawat inap yang selalu paling baru lengkap dengan nomor telfon rumah sakit terdekat dari lokasi anda.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    decoration: TextDecoration.none,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Poopins",
-                    color: Colors.black.withOpacity(0.7),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Text(
+                    "informasi layanan ruangan rawat inap yang selalu paling baru lengkap dengan nomor telfon rumah sakit terdekat dari lokasi anda.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      decoration: TextDecoration.none,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Poopins",
+                      color: Colors.black.withOpacity(0.7),
+                    ),
                   ),
                 ),
               ),

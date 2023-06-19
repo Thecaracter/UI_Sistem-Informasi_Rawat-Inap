@@ -92,7 +92,7 @@ class _OnBoardingState extends State<OnBoarding> {
               alignment: Alignment.center,
               child: Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  padding: const EdgeInsets.only(left: 15, right: 15),
                   child: Text(
                     "informasi layanan ruangan rawat inap yang selalu paling baru lengkap dengan nomor telfon rumah sakit terdekat dari lokasi anda.",
                     textAlign: TextAlign.center,

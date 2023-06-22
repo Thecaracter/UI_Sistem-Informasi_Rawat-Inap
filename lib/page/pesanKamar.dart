@@ -129,7 +129,7 @@ class _PesanKamarState extends State<PesanKamar> {
                             ),
                           ),
                           Text(
-                            "Pilih Jenis Kamar Tidur Anda",
+                            "Pilih Jenis Kamar Tidur",
                             style:
                                 TextStyle(fontSize: 14.0, color: Colors.white),
                           ),
